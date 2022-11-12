@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public delegate void OnNewWave(int wave);
-    public static event OnNewWave NewWaveEvent;
+    public delegate void OnNewTargetWave(int wave);
+    public static event OnNewTargetWave NewTargetWave ;
+
+    public delegate void OnNewWeaponWave(int wave);
+    public static event OnNewWeaponWave NewWeaponWaveEvent;
 
     public delegate void OnDeath();
     public static event OnDeath DeathEvent;
@@ -15,34 +18,46 @@ public class Timer : MonoBehaviour
     [SerializeField] private Targets targets;
     [SerializeField] private TextMeshProUGUI timerText;
     [Min(0)]
-    [SerializeField] private float timerSeconds = 15;
-
-    private float timeLeft;
-    private ushort waveNumber = 1;
+    [SerializeField] private float timerSecondsTargets = 15;
+    [SerializeField] private float timerSecondsWeapons = 20;
+   
+    private float timeLeftTargets, timeLeftWeapons;
+    private ushort targetWaveNumber, weaponWaveNumber   = 1;
 
     private void Awake()
     {
-        timeLeft = timerSeconds;
+        timeLeftTargets = timerSecondsTargets;
     }
 
     void Update()
     {
-        CalculateTime();
+        CalculateTargetTime();
     }
 
-    private void CalculateTime()
+    private void CalculateTargetTime()
     {
-        if (timeLeft > 0 && targets.ActiveTargets > 0) {
-            timeLeft -= Time.deltaTime;
-            timerText.text = System.Math.Round(timeLeft, 0).ToString(); 
+        if (timeLeftTargets > 0 && targets.ActiveTargets > 0) {
+            timeLeftTargets -= Time.deltaTime;
+            timerText.text = System.Math.Round(timeLeftTargets, 0).ToString(); 
         }   
-        else if (timeLeft <= 0 && targets.ActiveTargets > 0) {
+        else if (timeLeftTargets <= 0 && targets.ActiveTargets > 0) {
             DeathEvent();
         }
         else {
-            timeLeft = timerSeconds;
-            waveNumber++;           
-            NewWaveEvent(waveNumber);
+            timeLeftTargets = timerSecondsTargets;
+            targetWaveNumber++;           
+            NewTargetWave(targetWaveNumber);
         }      
+    }
+
+    private void CalculateWeaponTime()
+    {
+        if (timeLeftWeapons > 0)
+            timeLeftWeapons -= Time.deltaTime;
+        else {
+            timeLeftWeapons = timerSecondsWeapons;
+            weaponWaveNumber++;
+            NewWeaponWaveEvent(weaponWaveNumber);
+        }
     }
 }

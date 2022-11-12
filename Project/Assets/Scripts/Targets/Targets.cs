@@ -14,11 +14,11 @@ public class Targets : MonoBehaviour
 
     private void OnEnable()
     {
-        Timer.NewWaveEvent += EnableRandomTarget;
+        Timer.NewTargetWave += EnableRandomTarget;
     }
     private void OnDisable()
     {
-        Timer.NewWaveEvent -= EnableRandomTarget;
+        Timer.NewTargetWave -= EnableRandomTarget;
     }
 
     private void Start()
