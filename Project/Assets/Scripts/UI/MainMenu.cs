@@ -11,8 +11,10 @@ using UnityEngine.Networking;
 public class MainMenu : MonoBehaviour
 {
 
+	public int frameRate = 60;
+
 	void Start(){
-		Application.targetFrameRate = 60;
+		Application.targetFrameRate = frameRate;
 	}
 	public void SceneLoad(string SceneToLoad){
 		SceneManager.LoadScene(SceneToLoad);
