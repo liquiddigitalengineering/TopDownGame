@@ -1,7 +1,55 @@
 fileFormatVersion: 2
 guid: 19876ea3208de234c9b34a58c52fa554
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6446061410222754207
+    second: uzi_0
+  - first:
+      213: 8672426274089661381
+    second: uzi_1
+  - first:
+      213: -7922955116356890263
+    second: uzi_2
+  - first:
+      213: 242581159906154427
+    second: uzi_3
+  - first:
+      213: 2038340145819467022
+    second: uzi_4
+  - first:
+      213: -2105699916195833165
+    second: uzi_5
+  - first:
+      213: 4194279210183115377
+    second: uzi_6
+  - first:
+      213: -7920867054796318200
+    second: uzi_7
+  - first:
+      213: -7147975533568997772
+    second: uzi_8
+  - first:
+      213: 8844474082099910358
+    second: uzi_9
+  - first:
+      213: -7327477617868042361
+    second: uzi_10
+  - first:
+      213: 4317632439174314143
+    second: uzi_11
+  - first:
+      213: 7105302356618280970
+    second: uzi_12
+  - first:
+      213: -8711334004491574374
+    second: uzi_13
+  - first:
+      213: 4747101430202096818
+    second: uzi_14
+  - first:
+      213: 3669673565570418902
+    second: uzi_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +80,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,7 +89,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +123,357 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: uzi_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 768
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f994eac23b2057950800000000000000
+      internalID: 6446061410222754207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 718
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c3f0ef6fb5aa5870800000000000000
+      internalID: 8672426274089661381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 668
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9611f2e9c420c0290800000000000000
+      internalID: -7922955116356890263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 619
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb798699742dd5300800000000000000
+      internalID: 242581159906154427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 568
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0dbcf22093a94c10800000000000000
+      internalID: 2038340145819467022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 519
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bad39b251d07c2e0800000000000000
+      internalID: -2105699916195833165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 468
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17245cb28b2153a30800000000000000
+      internalID: 4194279210183115377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_7
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 419
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a55c5516d631290800000000000000
+      internalID: -7920867054796318200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 368
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476cf62bf1a4dcc90800000000000000
+      internalID: -7147975533568997772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 319
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6d6b05152edba70800000000000000
+      internalID: 8844474082099910358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 268
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f895fdde19f4a90800000000000000
+      internalID: -7327477617868042361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_11
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 219
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9830bfd3df4beb30800000000000000
+      internalID: 4317632439174314143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_12
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 168
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a008afb09da1b9260800000000000000
+      internalID: 7105302356618280970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_13
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 118
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93af76a0ef1b1780800000000000000
+      internalID: -8711334004491574374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 69
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bcd1fb799711e140800000000000000
+      internalID: 4747101430202096818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uzi_15
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 18
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d847754aac4de230800000000000000
+      internalID: 3669673565570418902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

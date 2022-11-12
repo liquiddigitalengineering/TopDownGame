@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: f200d38d3e7bf08439c9caf9d1ab24bc
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7206958180666054051
+    second: betaknife_0
+  - first:
+      213: -4806605461658323622
+    second: betaknife_2
+  - first:
+      213: 3464109672681456105
+    second: betaknife_4
+  - first:
+      213: -1442484786008118968
+    second: betaknife_6
+  - first:
+      213: -6509993628583543646
+    second: betaknife_8
+  - first:
+      213: -696192106715347653
+    second: betaknife_10
+  - first:
+      213: 5666893964620602124
+    second: betaknife_12
+  - first:
+      213: -494087002429934986
+    second: betaknife_13
+  - first:
+      213: 6280703747317083900
+    second: betaknife_14
+  - first:
+      213: 624222680461464322
+    second: betaknife_15
+  - first:
+      213: 2818021010991071499
+    second: betaknife_16
+  - first:
+      213: 6934227629352650818
+    second: betaknife_17
+  - first:
+      213: -2825452088461096130
+    second: betaknife_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +71,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,7 +80,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +114,294 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: betaknife_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 970
+        width: 15
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a512bdf742440460800000000000000
+      internalID: 7206958180666054051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 890
+        width: 16
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5537629cc18b4db0800000000000000
+      internalID: -4806605461658323622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 810
+        width: 16
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e14c27c46df21030800000000000000
+      internalID: 3464109672681456105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_6
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 730
+        width: 16
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849a410dab34bfbe0800000000000000
+      internalID: -1442484786008118968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 651
+        width: 15
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acb836494bd7a5a0800000000000000
+      internalID: -6509993628583543646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_10
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 570
+        width: 15
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b350dcfa7f0a656f0800000000000000
+      internalID: -696192106715347653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_12
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 490
+        width: 14
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b140d490ad4ae40800000000000000
+      internalID: 5666893964620602124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_13
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 408
+        width: 17
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672b6043d76a429f0800000000000000
+      internalID: -494087002429934986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_14
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 326
+        width: 17
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfeac4618ca892750800000000000000
+      internalID: 6280703747317083900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_15
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 245
+        width: 19
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203d5a9783fa9a800800000000000000
+      internalID: 624222680461464322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_16
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 162
+        width: 27
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01c5b1dd2f9b1720800000000000000
+      internalID: 2818021010991071499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_17
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 82
+        width: 27
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 248834f2a435b3060800000000000000
+      internalID: 6934227629352650818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: betaknife_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 2
+        width: 27
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b0461ab4af9c8d0800000000000000
+      internalID: -2825452088461096130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
