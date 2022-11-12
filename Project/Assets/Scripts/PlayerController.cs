@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     private GameObject wheel;
     private Transform m_transform;
 
-    public enum State {left, right}
-
     Vector2 movement;
 
     void Start(){
