@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
     [SerializeField] private List<GameObject> weaponPlaces;
-    [SerializeField] private GameObject middlePoint;
-        
+    [SerializeField] private List<GameObject> middlePoints;
+    [SerializeField] private WeaponTypesListSO weaponList;
+
     private ushort startEnabledTarget = 1;
 
     private void OnEnable()
@@ -22,17 +24,44 @@ public class Weapons : MonoBehaviour
     {
         EnableRandomWeapons(startEnabledTarget);
     }
+  
+
 
     private void EnableRandomWeapons(int waveNumber)
     {
-        if(startEnabledTarget < 8)
-            startEnabledTarget = CalculateWave(waveNumber);
+        DisableAllWeapons();
+       
+        if(startEnabledTarget < 8) startEnabledTarget = CalculateWave(waveNumber);
+
 
         for (ushort i = 0; i < startEnabledTarget; i++) {
             byte randomNumber = (byte)Random.Range(0, weaponPlaces.Count);
             GameObject weapon = weaponPlaces[randomNumber];
+            GameObject weaponChild = weapon.transform.GetChild(0).gameObject;
+
+            #region Calculating rotation of the weapon
+            Vector3 targ = weaponChild.transform.position;
+            targ.z = 0f;
+
+            Vector3 objectPos = middlePoints[Random.Range(0, middlePoints.Count)].transform.position;
+            targ.x = targ.x - objectPos.x;
+            targ.y = targ.y - objectPos.y;
+
+            float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+            weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            #endregion
+
+            weapon.GetComponent<WeaponHolder>().WeaponList = weaponList;
+            weapon.SetActive(true);
         }
     }
 
     private ushort CalculateWave(int waveNumber) => waveNumber % 2 == 0 ? startEnabledTarget : startEnabledTarget += 1;
+
+    private void DisableAllWeapons()
+    {
+        for (int i = 0; i < weaponPlaces.Count; i++) {
+            weaponPlaces[i].SetActive(false);
+        }
+    }
 }

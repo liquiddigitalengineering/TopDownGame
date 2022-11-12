@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Shotgun", menuName = "Weapons/Shotguns")]
 public class Shotguns : WeaponSO
 {
+    public ushort MiniVersions;
+
     public override void Shoot()
     {
         throw new System.NotImplementedException();

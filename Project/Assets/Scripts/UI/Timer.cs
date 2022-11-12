@@ -32,6 +32,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
         CalculateTargetTime();
+        CalculateWeaponTime();
     }
 
     private void CalculateTargetTime()
