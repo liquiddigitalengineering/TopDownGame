@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     private Transform MouseTransform;
     public Animator animator;
 
+    private GameObject topRightLimitObject;
+    private GameObject bottomLeftLimitObject;
+
+    private Vector3 topRightLimit;
+    private Vector3 bottomLeftLimit;
+
     Vector2 movement;
 
     void Start(){
@@ -17,6 +23,11 @@ public class PlayerController : MonoBehaviour
         wheel = GameObject.Find("WeaponWheel");
 
         MouseTransform = wheel.transform;
+
+        topRightLimitObject = GameObject.Find("TopRightLimit");
+        bottomLeftLimitObject = GameObject.Find("BottomLeftLimit");
+        topRightLimit = topRightLimitObject.transform.position;
+        bottomLeftLimit = bottomLeftLimitObject.transform.position;
     }
 
     void Update(){
@@ -33,6 +44,13 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
+
+        if(rb.position.x <= bottomLeftLimit.x || rb.position.y <= bottomLeftLimit.y){
+            rb.position = new Vector2(transform.position.x+0.015f, transform.position.y+0.015f);
+        }
+        if(rb.position.x >= topRightLimit.x || rb.position.y >= topRightLimit.y){
+            rb.position = new Vector2(transform.position.x-0.015f, transform.position.y-0.015f);
+        }
     }
 
     private void MouseDirection(){ //Function calculates angle of mouse to player, sets aim cursor to value. 
