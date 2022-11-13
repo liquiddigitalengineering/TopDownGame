@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject wheel;
     private Transform m_transform;
+    public Animator animator;
 
     Vector2 movement;
 
@@ -39,5 +40,8 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
         m_transform.rotation = rotation;
+    }
+    public void Death(){
+        animator.SetBool("EndGame", true);
     }
 }
