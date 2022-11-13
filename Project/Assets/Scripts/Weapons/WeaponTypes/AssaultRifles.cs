@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AssaultRifle", menuName = "Weapons/AssaultRifles")]
 public class AssaultRifles : WeaponSO
 {
-    public override void Shoot(Transform spawnPos, Transform targetPos)
+    public override void Shoot(Transform spawnPos, Transform targetPos, float angle)
     {
         throw new System.NotImplementedException();
     }

@@ -7,10 +7,13 @@ public class AimingWeapons : WeaponSO
 {
     public override void Shoot(Transform spawnPos, float angle)
     {
-        throw new System.NotImplementedException();
+        AimingWeaponBullet bullet = BulletPrefab.GetComponent<AimingWeaponBullet>();
+        bullet.Speed = BulletSpeed;
+        bullet.Angle = angle;
+        Instantiate(BulletPrefab, spawnPos.position, Quaternion.Euler(new Vector3(0, 0, angle)));
     }
 
-    public override void Shoot(Transform spawnPos, Transform targetPos)
+    public override void Shoot(Transform spawnPos, Transform targetPos, float angle)
     {
         throw new System.NotImplementedException();
     }

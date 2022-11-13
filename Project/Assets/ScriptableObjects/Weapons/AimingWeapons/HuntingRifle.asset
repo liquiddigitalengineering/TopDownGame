@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0e2dd53324bad3885f2c768ee4, type: 3}
   m_Name: HuntingRifle
   m_EditorClassIdentifier: 
-  WeaponSprite: {fileID: 0}
-  BulletPrefab: {fileID: 0}
-  Ammo: 0
-  BulletSpeed: 0
+  WeaponSprite: {fileID: 4574705827921654368, guid: 153677ee91327cc48ae526c365d5face, type: 3}
+  BulletPrefab: {fileID: 8558103751990471516, guid: bb13a922cdee6c94b8f8c3fc64a29e58, type: 3}
+  Ammo: 12
+  BulletSpeed: 15
   IsFocusingPlayer: 1
+  WeaponType: 0

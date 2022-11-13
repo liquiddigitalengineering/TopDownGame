@@ -7,7 +7,7 @@ public class Shotguns : WeaponSO
 {
     public ushort MiniVersions;
 
-    public override void Shoot(Transform spawnPos, Transform targetPos)
+    public override void Shoot(Transform spawnPos, Transform targetPos, float angle)
     {
        
     }

@@ -11,15 +11,18 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField] private WeaponSO weaponSO;
     
     private SpriteRenderer spriteRenderer;  
-    private float timeBetweenShooting = 4f;
+    private float timeBetweenShooting = 2f;
     private float timeLeft;
 
     private Transform playerTransform;
     private ushort ammos = 1;
 
+
+    private bool canShoot = true;
+
     private void OnEnable()
     {
-        weaponSO = SelectedWeapon();
+        //weaponSO = SelectedWeapon();
         ammos = weaponSO.Ammo;
         spriteRenderer.sprite = weaponSO.WeaponSprite;
         timeLeft = timeBetweenShooting;
@@ -27,7 +30,7 @@ public class WeaponHolder : MonoBehaviour
 
     private void Start()
     {
-        //playerTransform = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
 
         spriteRenderer = GetComponent<SpriteRenderer>();    
     }
@@ -35,11 +38,15 @@ public class WeaponHolder : MonoBehaviour
     private void Update()
     {
         if (!this.gameObject.activeInHierarchy) return;
-        
-        CalculateTime();
+
+        if (weaponSO.WeaponType == WeaponTypes.aimingWeapon)
+            RotateTowardsPlayer();
+        else
+            CalculateTimeBetweenShots();
+       
     }
 
-    private void CalculateTime()
+    private void CalculateTimeBetweenShots()
     {
         if(timeLeft > 0) {
             timeLeft -= Time.deltaTime;
@@ -73,6 +80,33 @@ public class WeaponHolder : MonoBehaviour
 
         if (weapons.Count == 1) return weapons[0].WeaponSO;
         else return weapons[Random.Range(0, weapons.Count)].WeaponSO;
+    }
+    #endregion
+
+    #region Aiming weapons
+    private void RotateTowardsPlayer()
+    {
+        Vector3 targ = transform.position;
+        targ.z = 0f;
+
+        Vector3 objectPos = playerTransform.position;
+        targ.x -= objectPos.x;
+        targ.y -= objectPos.y;
+
+        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        if (Weapon.IsNotMoving && canShoot && ammos > 0)
+            StartCoroutine(ShootingCoroutine());
+    }
+
+    private IEnumerator ShootingCoroutine() //used for Aiming weapons
+    {
+        ammos --;
+        canShoot = false;
+        weaponSO.Shoot(this.transform, Angle);
+        yield return new WaitForSeconds(1.5f);
+        canShoot = true;
     }
     #endregion
 }

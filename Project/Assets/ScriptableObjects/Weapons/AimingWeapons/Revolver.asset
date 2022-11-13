@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0e2dd53324bad3885f2c768ee4, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: 
-  WeaponSprite: {fileID: 0}
-  BulletPrefab: {fileID: 0}
-  Ammo: 0
-  BulletSpeed: 0
+  WeaponSprite: {fileID: -621705721191683503, guid: e32862276b8a8bc44872fafe211bf61b, type: 3}
+  BulletPrefab: {fileID: 8558103751990471516, guid: 1aef3c9ea624a954fb4bd012a5dd97f9, type: 3}
+  Ammo: 8
+  BulletSpeed: 10
   IsFocusingPlayer: 1
+  WeaponType: 0

@@ -17,4 +17,5 @@ MonoBehaviour:
   Ammo: 4
   BulletSpeed: 10
   IsFocusingPlayer: 0
+  WeaponType: 1
   MiniVersions: 4

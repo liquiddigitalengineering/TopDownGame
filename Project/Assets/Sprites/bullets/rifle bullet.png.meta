@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: ab680c797c89e864b89a26e00f4ba67c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6535436226283965138
+    second: rifle bullet_0
+  - first:
+      213: 55155748225271287
+    second: rifle bullet_1
+  - first:
+      213: 415327760185287454
+    second: rifle bullet_2
+  - first:
+      213: 7570307896638043759
+    second: rifle bullet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +101,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: rifle bullet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 67
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da00ef1f9882ba50800000000000000
+      internalID: 6535436226283965138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rifle bullet_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 47
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5c94c5cd3f3c000800000000000000
+      internalID: 55155748225271287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rifle bullet_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 27
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13e33bb56a83c500800000000000000
+      internalID: 415327760185287454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rifle bullet_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 7
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66f17b3ce22f0960800000000000000
+      internalID: 7570307896638043759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
