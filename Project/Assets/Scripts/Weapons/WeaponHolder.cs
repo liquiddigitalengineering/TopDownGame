@@ -11,6 +11,8 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField] private WeaponSO weaponSO;
     [SerializeField] private LineRenderer lineRenderer;
 
+    private float defAngle;
+
     private SpriteRenderer spriteRenderer;  
     private float timeBetweenShooting = 2f;
     private float timeLeft;
@@ -25,8 +27,9 @@ public class WeaponHolder : MonoBehaviour
     {
         //weaponSO = SelectedWeapon();
         ammos = weaponSO.Ammo;
-        //spriteRenderer.sprite = weaponSO.WeaponSprite;
+        spriteRenderer.sprite = weaponSO.WeaponSprite;
         timeLeft = timeBetweenShooting;
+        defAngle = Angle;
     }
 
     private void Start()
@@ -44,6 +47,8 @@ public class WeaponHolder : MonoBehaviour
             RotateTowardsPlayer();
         else if (weaponSO.WeaponType == WeaponTypes.laser)
             Laser();
+        else if (weaponSO.WeaponType == WeaponTypes.assaultRifle)
+            AssaultRifle();
         else
             CalculateTimeBetweenShots();
        
@@ -125,7 +130,7 @@ public class WeaponHolder : MonoBehaviour
     {
         ammos --;
         canShoot = false;
-        Vector2 dir = (transform.forward - this.transform.GetChild(0).transform.position);
+        Vector2 dir = (this.transform.GetChild(2).transform.position - this.transform.GetChild(0).transform.position);
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, transform.GetChild(0).transform.position);
         lineRenderer.SetPosition(1, dir);
@@ -135,6 +140,28 @@ public class WeaponHolder : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         canShoot = true;
+    }
+    #endregion
+
+    #region AssaultRiflex
+    private void AssaultRifle()
+    {
+        if (!canShoot || ammos <= 0) return;
+
+        StartCoroutine(AssaultRifleCoroutine());
+    }
+
+    private IEnumerator AssaultRifleCoroutine()
+    {
+        canShoot = false;
+        defAngle += Random.Range(-25, 25);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, defAngle));
+        yield return new WaitForSeconds(1f);
+       
+        weaponSO.Shoot(this.transform, this.transform.GetChild(2).transform, defAngle);
+        yield return new WaitForSeconds(2f);
+        canShoot = true;
+        defAngle = Angle;
     }
     #endregion
 }

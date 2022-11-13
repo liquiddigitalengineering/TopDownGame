@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748e729ef28838543bd7ed1b415f4f19, type: 3}
   m_Name: SwordfishRifle
   m_EditorClassIdentifier: 
-  WeaponSprite: {fileID: 0}
-  BulletPrefab: {fileID: 0}
-  Ammo: 0
-  BulletSpeed: 0
-  IsFocusingPlayer: 0
+  WeaponSprite: {fileID: -5892796729375509321, guid: dcaafe5bfea84474fad7e2a3fbad70eb, type: 3}
+  WeaponType: 3
+  BulletPrefab: {fileID: 8558103751990471516, guid: 1c93cb4108e4e6046b42bb0b57d8f3a7, type: 3}
+  Ammo: 25
+  BulletSpeed: 25
+  LaserTime: 0

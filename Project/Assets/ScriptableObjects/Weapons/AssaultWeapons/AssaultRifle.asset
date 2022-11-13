@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: 0}
-  BulletPrefab: {fileID: 0}
-  Ammo: 0
-  BulletSpeed: 0
-  IsFocusingPlayer: 0
+  WeaponType: 3
+  BulletPrefab: {fileID: 8558103751990471516, guid: 1c93cb4108e4e6046b42bb0b57d8f3a7, type: 3}
+  Ammo: 30
+  BulletSpeed: 20
+  LaserTime: 0

@@ -5,14 +5,16 @@ using UnityEngine;
 public class AimingWeaponBullet : MonoBehaviour
 {
     public float Speed, Angle;
-    public Transform playerTransform;
+    public Transform targetTransform;
 
     [SerializeField] private Rigidbody2D rb;
-    private Vector2 direction;
+    private Vector3 direction;
+
 
     private void Start()
     {
-        direction = (transform.forward - transform.position).normalized;
+        direction = (targetTransform.position - transform.position).normalized;
+        Debug.Log(direction);
         rb.velocity = new Vector2(direction.x, direction.y) * Speed;
     }
 }

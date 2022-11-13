@@ -6,7 +6,7 @@ using UnityEngine;
 public class Weapons : MonoBehaviour
 {
     [SerializeField] private List<GameObject> weaponPlaces;
-    [SerializeField] private List<GameObject> middlePoints;
+    [SerializeField] private GameObject middlePoints;
     [SerializeField] private WeaponTypesListSO weaponList;
 
     private ushort startEnabledTarget = 1;
@@ -36,17 +36,18 @@ public class Weapons : MonoBehaviour
 
         for (ushort i = 0; i < startEnabledTarget; i++) {
             byte randomNumber = (byte)Random.Range(0, weaponPlaces.Count);
-            GameObject weapon = weaponPlaces[1];
+            GameObject weapon = weaponPlaces[0];
 
             #region Calculating rotation of the weapon
             Vector3 targ = weapon.transform.GetChild(0).transform.position;
             targ.z = 0f;
 
-            Vector3 objectPos = middlePoints[Random.Range(0, middlePoints.Count)].transform.position;
+            Vector3 objectPos = middlePoints.transform.position;
             targ.x -= objectPos.x;
             targ.y -= objectPos.y;
 
             float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+            angle += Random.Range(-20f, 20f);
             weapon.GetComponent<WeaponHolder>().Angle = angle;
             weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             #endregion
