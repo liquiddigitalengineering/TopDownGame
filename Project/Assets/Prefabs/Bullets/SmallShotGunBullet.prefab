@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 1495805715627948438}
   - component: {fileID: 8558103751990471514}
   - component: {fileID: -3289363794845506202}
-  - component: {fileID: 5426156079763938337}
   m_Layer: 0
-  m_Name: ShotgunBullet
+  m_Name: SmallShotGunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8558103751990471516}
-  m_LocalRotation: {x: 0, y: 0, z: -0.43165055, w: 0.9020409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1.99447}
+  m_LocalScale: {x: 3, y: 3, z: 1.99447}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -137,21 +136,3 @@ PolygonCollider2D:
       - {x: -0.049999997, y: -0.055}
       - {x: 0.08, y: -0.055}
       - {x: 0.08, y: 0.055}
---- !u!114 &5426156079763938337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8558103751990471516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dbdc7f1f875af54884f3bcbd0c1e15f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 20
-  Angle: -26.398853
-  MiniVersions: 8
-  rb: {fileID: 8558103751990471514}
-  prefab: {fileID: 8558103751990471516, guid: ad87a2ac0799ed84f85278426c7dfa67, type: 3}
-  spread: 0.5

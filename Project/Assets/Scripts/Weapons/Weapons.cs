@@ -36,7 +36,7 @@ public class Weapons : MonoBehaviour
 
         for (ushort i = 0; i < startEnabledTarget; i++) {
             byte randomNumber = (byte)Random.Range(0, weaponPlaces.Count);
-            GameObject weapon = weaponPlaces[randomNumber];
+            GameObject weapon = weaponPlaces[1];
             GameObject weaponChild = weapon.transform.GetChild(0).gameObject;
 
             #region Calculating rotation of the weapon
@@ -44,14 +44,14 @@ public class Weapons : MonoBehaviour
             targ.z = 0f;
 
             Vector3 objectPos = middlePoints[Random.Range(0, middlePoints.Count)].transform.position;
-            targ.x = targ.x - objectPos.x;
-            targ.y = targ.y - objectPos.y;
+            targ.x -= objectPos.x;
+            targ.y -= objectPos.y;
 
             float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+            weapon.GetComponent<WeaponHolder>().Angle = angle;
             weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             #endregion
-
-            weapon.GetComponent<WeaponHolder>().WeaponList = weaponList;
+         
             weapon.SetActive(true);
         }
     }

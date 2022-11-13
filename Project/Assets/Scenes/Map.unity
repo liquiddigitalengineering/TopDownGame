@@ -953,7 +953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153344051}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 579310524}
@@ -1203,7 +1203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd203826da17b143a1038b2aa968867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponList: {fileID: 0}
+  Angle: 0
+  WeaponList: {fileID: 11400000, guid: 059b99bd99120c74cbef35b8a059a318, type: 2}
+  weaponSO: {fileID: 11400000, guid: adec3dbc558e1554db948690519db51a, type: 2}
 --- !u!1 &271227830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,7 +1556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408445512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2020862710}
@@ -1865,7 +1867,7 @@ GameObject:
   - component: {fileID: 512977449}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1974,7 +1976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563235387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1881902333}
@@ -2076,7 +2078,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd203826da17b143a1038b2aa968867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponList: {fileID: 0}
+  Angle: 0
+  WeaponList: {fileID: 11400000, guid: 059b99bd99120c74cbef35b8a059a318, type: 2}
+  weaponSO: {fileID: 11400000, guid: adec3dbc558e1554db948690519db51a, type: 2}
 --- !u!1 &580936889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2101,7 +2105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580936889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 607400681}
@@ -2203,7 +2207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd203826da17b143a1038b2aa968867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponList: {fileID: 0}
+  Angle: 0
+  WeaponList: {fileID: 11400000, guid: 059b99bd99120c74cbef35b8a059a318, type: 2}
+  weaponSO: {fileID: 11400000, guid: adec3dbc558e1554db948690519db51a, type: 2}
 --- !u!1 &736197671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,7 +2271,6 @@ MonoBehaviour:
   - {fileID: 607400680}
   - {fileID: 1881902332}
   middlePoints:
-  - {fileID: 1974809492}
   - {fileID: 940346383}
   - {fileID: 1562895883}
   - {fileID: 1299322413}
@@ -2298,7 +2303,6 @@ Transform:
   m_LocalPosition: {x: -3.8837996, y: 1.500252, z: 3.663897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1974809493}
   - {fileID: 940346384}
   - {fileID: 1562895884}
   - {fileID: 1299322414}
@@ -2440,11 +2444,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873578028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.96, y: -3.74, z: -3.663897}
+  m_LocalPosition: {x: -0.96, y: -1.99, z: -3.663897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 761355561}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &902132593
 GameObject:
@@ -2701,7 +2705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939586930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1009036581}
@@ -2731,11 +2735,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940346383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.42, y: -0.35, z: -3.663897}
+  m_LocalPosition: {x: -0.42, y: -0.17, z: -3.663897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 761355561}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &944027525
 GameObject:
@@ -2761,7 +2765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944027525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 253395161}
@@ -2863,7 +2867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd203826da17b143a1038b2aa968867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponList: {fileID: 0}
+  Angle: 0
+  WeaponList: {fileID: 11400000, guid: 059b99bd99120c74cbef35b8a059a318, type: 2}
+  weaponSO: {fileID: 11400000, guid: adec3dbc558e1554db948690519db51a, type: 2}
 --- !u!1 &1078340711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,7 +2943,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1540224770609593787, guid: ea0524868158b0945b79ddc93b9708bd, type: 3}
+  m_Sprite: {fileID: 4574705827921654368, guid: 153677ee91327cc48ae526c365d5face, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2960,7 +2966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd203826da17b143a1038b2aa968867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponList: {fileID: 0}
+  Angle: 0
+  WeaponList: {fileID: 11400000, guid: 059b99bd99120c74cbef35b8a059a318, type: 2}
+  weaponSO: {fileID: 11400000, guid: adec3dbc558e1554db948690519db51a, type: 2}
 --- !u!1 &1097285747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3356,11 +3364,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299322413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.38, y: -3.74, z: -3.663897}
+  m_LocalPosition: {x: 8.17, y: -3.58, z: -3.663897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 761355561}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393716179
 GameObject:
@@ -3686,7 +3694,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 761355561}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632496602
 GameObject:
@@ -3830,7 +3838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680757141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2085876879}
@@ -3860,7 +3868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759623478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.6, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1078340712}
@@ -3962,7 +3970,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd203826da17b143a1038b2aa968867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponList: {fileID: 0}
+  Angle: 0
+  WeaponList: {fileID: 11400000, guid: 059b99bd99120c74cbef35b8a059a318, type: 2}
+  weaponSO: {fileID: 11400000, guid: adec3dbc558e1554db948690519db51a, type: 2}
 --- !u!1 &1966578634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4111,36 +4121,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1974809492
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1974809493}
-  m_Layer: 0
-  m_Name: MiddlePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1974809493
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974809492}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8837996, y: -1.500252, z: -3.663897}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 761355561}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2020862709
 GameObject:
   m_ObjectHideFlags: 0
@@ -4237,7 +4217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd203826da17b143a1038b2aa968867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponList: {fileID: 0}
+  Angle: 0
+  WeaponList: {fileID: 11400000, guid: 059b99bd99120c74cbef35b8a059a318, type: 2}
+  weaponSO: {fileID: 11400000, guid: adec3dbc558e1554db948690519db51a, type: 2}
 --- !u!1 &2051322975
 GameObject:
   m_ObjectHideFlags: 0
@@ -4411,14 +4393,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085876878}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.06592569, w: 0.99782455}
   m_LocalPosition: {x: 9.78, y: 4.32, z: 0}
   m_LocalScale: {x: 2.5076, y: 2.5076, z: 2.5076}
   m_Children:
   - {fileID: 1680757142}
   m_Father: {fileID: 736197672}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.56}
 --- !u!212 &2085876880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4482,4 +4464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd203826da17b143a1038b2aa968867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponList: {fileID: 0}
+  Angle: 0
+  WeaponList: {fileID: 11400000, guid: 059b99bd99120c74cbef35b8a059a318, type: 2}
+  weaponSO: {fileID: 11400000, guid: adec3dbc558e1554db948690519db51a, type: 2}

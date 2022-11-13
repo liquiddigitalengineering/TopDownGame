@@ -15,6 +15,6 @@ MonoBehaviour:
   WeaponSprite: {fileID: 5417087303433989896, guid: 4225d30e669862d4ea14068663f57685, type: 3}
   BulletPrefab: {fileID: 8558103751990471516, guid: 4bf9859cbc75f2142b65305ba7179d47, type: 3}
   Ammo: 2
-  BulletSpeed: 30
+  BulletSpeed: 20
   IsFocusingPlayer: 0
   MiniVersions: 8

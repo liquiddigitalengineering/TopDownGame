@@ -5,21 +5,53 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    public WeaponTypesListSO WeaponList;
+    [HideInInspector]
+    public float Angle;
+    [SerializeField] private WeaponTypesListSO WeaponList;
+    [SerializeField] private WeaponSO weaponSO;
+    
+    private SpriteRenderer spriteRenderer;  
+    private float timeBetweenShooting = 4f;
+    private float timeLeft;
 
-    private SpriteRenderer spriteRenderer;
+    private Transform playerTransform;
+    private ushort ammos = 1;
 
-    private WeaponSO weaponSO;
+    private void OnEnable()
+    {
+        weaponSO = SelectedWeapon();
+        ammos = weaponSO.Ammo;
+        spriteRenderer.sprite = weaponSO.WeaponSprite;
+        timeLeft = timeBetweenShooting;
+    }
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        weaponSO = SelectedWeapon();
+        //playerTransform = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
 
-        spriteRenderer.sprite = weaponSO.WeaponSprite;
-
+        spriteRenderer = GetComponent<SpriteRenderer>();    
     }
 
+    private void Update()
+    {
+        if (!this.gameObject.activeInHierarchy) return;
+        
+        CalculateTime();
+    }
+
+    private void CalculateTime()
+    {
+        if(timeLeft > 0) {
+            timeLeft -= Time.deltaTime;
+        }
+        else if(timeLeft <= 0 && ammos > 0) {
+            timeLeft = timeBetweenShooting;
+            ammos--;
+            weaponSO.Shoot(this.transform.GetChild(0).gameObject.transform, Angle);
+        }
+    }
+
+    #region Select weapon based on spawn %
     private WeaponSO SelectedWeapon()
     {
         List<WeaponInfo> weapons;
@@ -42,4 +74,5 @@ public class WeaponHolder : MonoBehaviour
         if (weapons.Count == 1) return weapons[0].WeaponSO;
         else return weapons[Random.Range(0, weapons.Count)].WeaponSO;
     }
+    #endregion
 }

@@ -10,6 +10,6 @@ public abstract class WeaponSO : ScriptableObject
     public ushort BulletSpeed;
     public bool IsFocusingPlayer = false;
 
-    public abstract void Shoot();
-    public abstract void Shoot(Transform target);
+    public abstract void Shoot(Transform spawnPos, Transform targetPos);
+    public abstract void Shoot(Transform spawnPos, float angle);
 }
