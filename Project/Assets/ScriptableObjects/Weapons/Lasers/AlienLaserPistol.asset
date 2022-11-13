@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c84f2038c4c4634eb2fd7315ec590dc, type: 3}
   m_Name: AlienLaserPistol
   m_EditorClassIdentifier: 
-  WeaponSprite: {fileID: 0}
+  WeaponSprite: {fileID: 645667204412624933, guid: 758f2ce1e86a01e4c8d6a84d9ded8eb0, type: 3}
+  WeaponType: 2
   BulletPrefab: {fileID: 0}
-  Ammo: 0
+  Ammo: 10
   BulletSpeed: 0
-  IsFocusingPlayer: 0
+  LaserTime: 3

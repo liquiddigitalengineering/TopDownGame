@@ -39,7 +39,7 @@ public class Weapons : MonoBehaviour
             GameObject weapon = weaponPlaces[1];
 
             #region Calculating rotation of the weapon
-            Vector3 targ = weapon.transform.position;
+            Vector3 targ = weapon.transform.GetChild(0).transform.position;
             targ.z = 0f;
 
             Vector3 objectPos = middlePoints[Random.Range(0, middlePoints.Count)].transform.position;

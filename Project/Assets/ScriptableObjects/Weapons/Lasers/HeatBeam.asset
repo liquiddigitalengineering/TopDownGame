@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c84f2038c4c4634eb2fd7315ec590dc, type: 3}
   m_Name: HeatBeam
   m_EditorClassIdentifier: 
-  WeaponSprite: {fileID: 0}
+  WeaponSprite: {fileID: 1540224770609593787, guid: ea0524868158b0945b79ddc93b9708bd, type: 3}
+  WeaponType: 2
   BulletPrefab: {fileID: 0}
-  Ammo: 0
+  Ammo: 10
   BulletSpeed: 0
-  IsFocusingPlayer: 0
+  LaserTime: 2

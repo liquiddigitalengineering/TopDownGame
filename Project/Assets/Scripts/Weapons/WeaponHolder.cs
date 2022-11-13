@@ -9,7 +9,8 @@ public class WeaponHolder : MonoBehaviour
     public float Angle;
     [SerializeField] private WeaponTypesListSO WeaponList;
     [SerializeField] private WeaponSO weaponSO;
-    
+    [SerializeField] private LineRenderer lineRenderer;
+
     private SpriteRenderer spriteRenderer;  
     private float timeBetweenShooting = 2f;
     private float timeLeft;
@@ -24,7 +25,7 @@ public class WeaponHolder : MonoBehaviour
     {
         //weaponSO = SelectedWeapon();
         ammos = weaponSO.Ammo;
-        spriteRenderer.sprite = weaponSO.WeaponSprite;
+        //spriteRenderer.sprite = weaponSO.WeaponSprite;
         timeLeft = timeBetweenShooting;
     }
 
@@ -41,6 +42,8 @@ public class WeaponHolder : MonoBehaviour
 
         if (weaponSO.WeaponType == WeaponTypes.aimingWeapon)
             RotateTowardsPlayer();
+        else if (weaponSO.WeaponType == WeaponTypes.laser)
+            Laser();
         else
             CalculateTimeBetweenShots();
        
@@ -106,6 +109,31 @@ public class WeaponHolder : MonoBehaviour
         canShoot = false;
         weaponSO.Shoot(this.transform, Angle);
         yield return new WaitForSeconds(1.5f);
+        canShoot = true;
+    }
+    #endregion
+
+    #region Lasers
+    private void Laser()
+    {
+        if (!canShoot || ammos <= 0) return;
+
+        StartCoroutine(LaserCoroutine());
+    }
+
+    private IEnumerator LaserCoroutine()
+    {
+        ammos --;
+        canShoot = false;
+        Vector2 dir = (transform.forward - this.transform.GetChild(0).transform.position);
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, transform.GetChild(0).transform.position);
+        lineRenderer.SetPosition(1, dir);
+
+        yield return new WaitForSeconds(weaponSO.LaserTime);
+        lineRenderer.enabled = false;
+
+        yield return new WaitForSeconds(2f);
         canShoot = true;
     }
     #endregion
