@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour
         }   
         else if (timeLeftTargets <= 0 && targets.ActiveTargets > 0) {
             DeathEvent();
-            GetComponent<PlayerController>().Death();
+            //GetComponent<PlayerController>().Death();
         }
         else {
             timeLeftTargets = timerSecondsTargets;
