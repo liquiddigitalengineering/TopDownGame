@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: NormalShotgun
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: 669530955124031779, guid: 64dc9cd73cc3e444da4f4d0130760c69, type: 3}
+  WeaponType: 1
   BulletPrefab: {fileID: 8558103751990471516, guid: 4bf9859cbc75f2142b65305ba7179d47, type: 3}
   Ammo: 4
   BulletSpeed: 10
-  IsFocusingPlayer: 0
-  WeaponType: 1
+  LaserTime: 0
+  Firepoint: {x: -0.1108, y: 0.0363}
+  Sprites: []
   MiniVersions: 4

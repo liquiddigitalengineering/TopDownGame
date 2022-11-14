@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ShotgunBullet : MonoBehaviour
 {
-    public float Speed, Angle;
+    public float Speed;
     public ushort MiniVersions;
+    public Transform Target;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject prefab;
@@ -15,7 +16,7 @@ public class ShotgunBullet : MonoBehaviour
     
     private void Start()
     {
-        direction = (transform.forward - transform.position).normalized;
+        direction = (Target.position - transform.position).normalized;
         rb.velocity = new Vector2(direction.x, direction.y) * Speed;
 
         Invoke("SpawnMoreBullets", 0.2f);
@@ -24,7 +25,7 @@ public class ShotgunBullet : MonoBehaviour
     private void SpawnMoreBullets()
     {
         for (int i = 0; i < MiniVersions; i++) {
-            GameObject bulletPrefab =  Instantiate(prefab, this.transform.position, Quaternion.Euler(new Vector3(0, 0, Angle)));
+            GameObject bulletPrefab =  Instantiate(prefab, this.transform.position, transform.rotation);
             Rigidbody2D gameRB = bulletPrefab.GetComponent<Rigidbody2D>();
             Vector2 dir = (transform.forward - transform.position);
             Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(-spread, spread);

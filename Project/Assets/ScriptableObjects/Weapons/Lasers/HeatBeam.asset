@@ -18,3 +18,7 @@ MonoBehaviour:
   Ammo: 10
   BulletSpeed: 0
   LaserTime: 2
+  Firepoint: {x: -0.3372, y: 0.082}
+  Sprites:
+  - {fileID: 1540224770609593787, guid: ea0524868158b0945b79ddc93b9708bd, type: 3}
+  - {fileID: -2770475851939344082, guid: 6e876a4bcd7add341bedd4edf5dc90ef, type: 3}

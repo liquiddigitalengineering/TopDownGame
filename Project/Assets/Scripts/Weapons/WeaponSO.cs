@@ -17,7 +17,8 @@ public abstract class WeaponSO : ScriptableObject
     public ushort BulletSpeed;
     [Space(10)]
     public ushort LaserTime;
+    public Vector2 Firepoint;
+    public List<Sprite> Sprites;
 
-    public abstract void Shoot(Transform spawnPos, Transform targetPos, float angle);
-    public abstract void Shoot(Transform spawnPos, float angle);
+    public abstract void Shoot(Transform spawnPos, Transform targetPos);
 }

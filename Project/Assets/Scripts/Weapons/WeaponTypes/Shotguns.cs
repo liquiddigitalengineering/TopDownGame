@@ -7,17 +7,12 @@ public class Shotguns : WeaponSO
 {
     public ushort MiniVersions;
 
-    public override void Shoot(Transform spawnPos, Transform targetPos, float angle)
-    {
-       
-    }
-
-    public override void Shoot(Transform spawnPos, float angle)
+    public override void Shoot(Transform spawnPos, Transform targetPos)
     {
         ShotgunBullet bullet = BulletPrefab.GetComponent<ShotgunBullet>();
         bullet.Speed = BulletSpeed;
-        bullet.Angle = angle;
         bullet.MiniVersions = MiniVersions;
-        Instantiate(BulletPrefab, spawnPos.position, Quaternion.Euler(new Vector3(0, 0, angle)));
+        bullet.Target = targetPos;
+        Instantiate(BulletPrefab, spawnPos.position, spawnPos.rotation);
     }
 }

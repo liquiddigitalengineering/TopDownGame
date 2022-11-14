@@ -20,7 +20,7 @@ public class Weapons : MonoBehaviour
         Timer.NewWeaponWaveEvent -= EnableRandomWeapons;
     }
 
-    private void Start()
+    private  void Start()
     {
         EnableRandomWeapons(startEnabledTarget);
     }
@@ -33,10 +33,14 @@ public class Weapons : MonoBehaviour
        
         if(startEnabledTarget < 8) startEnabledTarget = CalculateWave(waveNumber);
 
-
         for (ushort i = 0; i < startEnabledTarget; i++) {
             byte randomNumber = (byte)Random.Range(0, weaponPlaces.Count);
-            GameObject weapon = weaponPlaces[0];
+            GameObject weapon = weaponPlaces[randomNumber];
+
+            if (weaponPlaces[randomNumber].activeInHierarchy) {
+                i--;
+                continue;
+            }
 
             #region Calculating rotation of the weapon
             Vector3 targ = weapon.transform.GetChild(0).transform.position;
@@ -47,20 +51,21 @@ public class Weapons : MonoBehaviour
             targ.y -= objectPos.y;
 
             float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-            angle += Random.Range(-20f, 20f);
+            angle += Random.Range(-15f, 15f);
             weapon.GetComponent<WeaponHolder>().Angle = angle;
             weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             #endregion
+
+            weapon.GetComponent<WeaponHolder>().AssignThings();
             weapon.SetActive(true);
         }
     }
 
-    private ushort CalculateWave(int waveNumber) => waveNumber % 2 == 0 ? startEnabledTarget : startEnabledTarget += 1;
+    private ushort CalculateWave(int waveNumber) => waveNumber % 2 == 0 ? startEnabledTarget += 1 : startEnabledTarget ;
 
     private void DisableAllWeapons()
     {
-        for (int i = 0; i < weaponPlaces.Count; i++) {
+        for (int i = 0; i < weaponPlaces.Count; i++)
             weaponPlaces[i].SetActive(false);
-        }
     }
 }

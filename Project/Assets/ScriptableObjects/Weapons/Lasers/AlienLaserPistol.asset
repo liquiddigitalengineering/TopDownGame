@@ -18,3 +18,5 @@ MonoBehaviour:
   Ammo: 10
   BulletSpeed: 0
   LaserTime: 3
+  Firepoint: {x: -0.1281, y: 0.0581}
+  Sprites: []

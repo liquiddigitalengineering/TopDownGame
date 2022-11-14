@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60523e0e2dd53324bad3885f2c768ee4, type: 3}
   m_Name: AlienSniper
   m_EditorClassIdentifier: 
-  WeaponSprite: {fileID: -4181434190026475331, guid: 2cf0ebe3f68bc8549a62a349030e5438, type: 3}
+  WeaponSprite: {fileID: -5953829313503169285, guid: 6b2f3b0b5d2952746835f1863faf5159, type: 3}
+  WeaponType: 0
   BulletPrefab: {fileID: 8558103751990471516, guid: 6bde78c06ef40fe4bb470c5797736261, type: 3}
   Ammo: 4
   BulletSpeed: 20
-  IsFocusingPlayer: 1
-  WeaponType: 0
+  LaserTime: 0
+  Firepoint: {x: -0.1664, y: 0.04}
+  Sprites: []

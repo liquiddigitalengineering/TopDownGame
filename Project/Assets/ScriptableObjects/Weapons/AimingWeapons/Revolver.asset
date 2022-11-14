@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   WeaponSprite: {fileID: -621705721191683503, guid: e32862276b8a8bc44872fafe211bf61b, type: 3}
+  WeaponType: 0
   BulletPrefab: {fileID: 8558103751990471516, guid: 1aef3c9ea624a954fb4bd012a5dd97f9, type: 3}
   Ammo: 8
   BulletSpeed: 10
-  IsFocusingPlayer: 1
-  WeaponType: 0
+  LaserTime: 0
+  Firepoint: {x: -0.0815, y: 0.078}
+  Sprites: []

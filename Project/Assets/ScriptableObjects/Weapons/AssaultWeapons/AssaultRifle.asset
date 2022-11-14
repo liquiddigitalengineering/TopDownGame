@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748e729ef28838543bd7ed1b415f4f19, type: 3}
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
-  WeaponSprite: {fileID: 0}
+  WeaponSprite: {fileID: -4181434190026475331, guid: 2cf0ebe3f68bc8549a62a349030e5438, type: 3}
   WeaponType: 3
   BulletPrefab: {fileID: 8558103751990471516, guid: 1c93cb4108e4e6046b42bb0b57d8f3a7, type: 3}
   Ammo: 30
   BulletSpeed: 20
   LaserTime: 0
+  Firepoint: {x: -0.1825, y: 0.0589}
+  Sprites: []

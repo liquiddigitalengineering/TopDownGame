@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private float timerSecondsWeapons = 20;
    
     private float timeLeftTargets, timeLeftWeapons;
-    private ushort targetWaveNumber, weaponWaveNumber   = 1;
+    private ushort targetWaveNumber, weaponWaveNumber = 1;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        CalculateTargetTime();
+        //CalculateTargetTime();
         CalculateWeaponTime();
     }
 
@@ -57,8 +57,10 @@ public class Timer : MonoBehaviour
         if (timeLeftWeapons > 0)
             timeLeftWeapons -= Time.deltaTime;
         else {
+            Debug.Log("New wave");
             timeLeftWeapons = timerSecondsWeapons;
             weaponWaveNumber++;
+            Debug.Log(weaponWaveNumber);
             NewWeaponWaveEvent(weaponWaveNumber);
         }
     }
