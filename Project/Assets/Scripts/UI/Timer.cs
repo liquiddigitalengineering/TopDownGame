@@ -43,6 +43,7 @@ public class Timer : MonoBehaviour
         }   
         else if (timeLeftTargets <= 0 && targets.ActiveTargets > 0) {
             DeathEvent();
+            //GetComponent<PlayerController>().Death();
         }
         else {
             timeLeftTargets = timerSecondsTargets;
@@ -61,4 +62,5 @@ public class Timer : MonoBehaviour
             NewWeaponWaveEvent(weaponWaveNumber);
         }
     }
+
 }
