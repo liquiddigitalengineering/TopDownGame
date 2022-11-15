@@ -26,17 +26,17 @@ public class PlayerController : MonoBehaviour
 
         topRightLimitObject = GameObject.Find("TopRightLimit");
         bottomLeftLimitObject = GameObject.Find("BottomLeftLimit");
-        topRightLimit = topRightLimitObject.transform.position;
-        bottomLeftLimit = bottomLeftLimitObject.transform.position;
+        //topRightLimit = topRightLimitObject.transform.position;
+        //bottomLeftLimit = bottomLeftLimitObject.transform.position;
     }
 
     void Update(){
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         Vector2 mousePosition = Input.mousePosition;
-        if(wheel.transform.localEulerAngles.z < 180){
-            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y);} //When the pointer is left of the player, flip the player to face left
         if(wheel.transform.localEulerAngles.z > 180){
+            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y);} //When the pointer is left of the player, flip the player to face left
+        if(wheel.transform.localEulerAngles.z < 180){
             transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);} //When the pointer is right of the player, flip the player to face right
         MouseDirection();
         wheel.transform.position = new Vector2(transform.position.x, transform.position.y);
@@ -45,12 +45,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 
-        if(rb.position.x <= bottomLeftLimit.x || rb.position.y <= bottomLeftLimit.y){
-            rb.position = new Vector2(transform.position.x+0.015f, transform.position.y+0.015f);
-        }
-        if(rb.position.x >= topRightLimit.x || rb.position.y >= topRightLimit.y){
-            rb.position = new Vector2(transform.position.x-0.015f, transform.position.y-0.015f);
-        }
+        // if(rb.position.x <= bottomLeftLimit.x || rb.position.y <= bottomLeftLimit.y){
+        //     rb.position = new Vector2(transform.position.x+0.015f, transform.position.y+0.015f);
+        // }
+        // if(rb.position.x >= topRightLimit.x || rb.position.y >= topRightLimit.y){
+        //     rb.position = new Vector2(transform.position.x-0.015f, transform.position.y-0.015f);
+        // }
     }
 
     private void MouseDirection(){ //Function calculates angle of mouse to player, sets aim cursor to value. 
