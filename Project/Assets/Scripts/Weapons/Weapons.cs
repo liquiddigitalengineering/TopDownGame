@@ -14,10 +14,12 @@ public class Weapons : MonoBehaviour
     private void OnEnable()
     {
         Timer.NewWeaponWaveEvent += EnableRandomWeapons;
+        PlayerController.PlayerDiedEvent += PlayerDied;
     }
     private void OnDisable()
     {
         Timer.NewWeaponWaveEvent -= EnableRandomWeapons;
+        PlayerController.PlayerDiedEvent -= PlayerDied;
     }
 
     private  void Start()
@@ -67,5 +69,11 @@ public class Weapons : MonoBehaviour
     {
         for (int i = 0; i < weaponPlaces.Count; i++)
             weaponPlaces[i].SetActive(false);
+    }
+
+    private void PlayerDied()
+    {
+        DisableAllWeapons();
+        this.gameObject.SetActive(false);
     }
 }

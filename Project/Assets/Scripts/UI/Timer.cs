@@ -24,6 +24,15 @@ public class Timer : MonoBehaviour
     private float timeLeftTargets, timeLeftWeapons;
     private ushort targetWaveNumber, weaponWaveNumber = 1;
 
+    private void OnEnable()
+    {
+        PlayerController.PlayerDiedEvent += DisableScript;
+    }
+    private void OnDisable()
+    {
+        PlayerController.PlayerDiedEvent -= DisableScript;
+    }
+
     private void Awake()
     {
         timeLeftTargets = timerSecondsTargets;
@@ -31,7 +40,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        //CalculateTargetTime();
+        CalculateTargetTime();
         CalculateWeaponTime();
     }
 
@@ -57,12 +66,14 @@ public class Timer : MonoBehaviour
         if (timeLeftWeapons > 0)
             timeLeftWeapons -= Time.deltaTime;
         else {
-            Debug.Log("New wave");
             timeLeftWeapons = timerSecondsWeapons;
             weaponWaveNumber++;
-            Debug.Log(weaponWaveNumber);
             NewWeaponWaveEvent(weaponWaveNumber);
         }
     }
 
+    private void DisableScript()
+    {
+        this.gameObject.SetActive(false);
+    }
 }

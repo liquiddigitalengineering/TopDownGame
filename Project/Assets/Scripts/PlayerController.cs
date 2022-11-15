@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public delegate void OnPlayerDied();
+    public static event OnPlayerDied PlayerDiedEvent;
+
     public static bool IsMoving { get; private set; }
     [SerializeField] [Min(0)] private float movementSpeed = 5f;
     private Rigidbody2D rb;
@@ -14,17 +17,19 @@ public class PlayerController : MonoBehaviour
     private GameObject topRightLimitObject, bottomLeftLimitObject;
 
     private Vector3 topRightLimit, bottomLeftLimit;
-
+    private bool canMove = true;
     Vector2 movement;
 
     #region Take care of events :) (it's not greek village, really xd)
     private void OnEnable()
     {
         Timer.DeathEvent += DeathEvent;
+        PlayerHealthController.PlayerDeathEvent += DeathEvent;
     }
     private void OnDisable()
     {
         Timer.DeathEvent -= DeathEvent;
+        PlayerHealthController.PlayerDeathEvent -= DeathEvent;
     }
     #endregion
 
@@ -42,6 +47,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update(){
+        if (!canMove) return;
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         Vector2 mousePosition = Input.mousePosition;
@@ -75,5 +82,8 @@ public class PlayerController : MonoBehaviour
 
     public void DeathEvent(){
         animator.SetBool("EndGame", true);
+        PlayerDiedEvent();
+        canMove = false;
+        movement = Vector2.zero;
     }
 }
