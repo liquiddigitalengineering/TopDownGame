@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748e729ef28838543bd7ed1b415f4f19, type: 3}
+  m_Name: SwordfishRifle
+  m_EditorClassIdentifier: 
+  WeaponSprite: {fileID: -5892796729375509321, guid: dcaafe5bfea84474fad7e2a3fbad70eb, type: 3}
+  WeaponType: 3
+  BulletPrefab: {fileID: 8558103751990471516, guid: 1c93cb4108e4e6046b42bb0b57d8f3a7, type: 3}
+  Ammo: 25
+  BulletSpeed: 25
+  LaserTime: 0
+  Firepoint: {x: -0.2681, y: -0.0176}
+  Sprites: []

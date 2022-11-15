@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 1603a435f96d09a4990d99c5f4c86e42
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2247137671576300180
+    second: revo&snipbul_0
+  - first:
+      213: -479320797995995669
+    second: revo&snipbul_1
+  - first:
+      213: 7843949657151035709
+    second: revo&snipbul_2
+  - first:
+      213: 3714663222589940208
+    second: revo&snipbul_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +101,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: revo&snipbul_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 68
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65db4c813090d0e0800000000000000
+      internalID: -2247137671576300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revo&snipbul_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 48
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bededf5164c1959f0800000000000000
+      internalID: -479320797995995669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revo&snipbul_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 28
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d39d88677ae4bdc60800000000000000
+      internalID: 7843949657151035709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: revo&snipbul_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 8
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f16ea215822d8330800000000000000
+      internalID: 3714663222589940208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

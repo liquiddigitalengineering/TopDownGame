@@ -5,13 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AssaultRifle", menuName = "Weapons/AssaultRifles")]
 public class AssaultRifles : WeaponSO
 {
-    public override void Shoot()
+    public override void Shoot(Transform spawnPos, Transform targetPos)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Shoot(Transform target)
-    {
-        throw new System.NotImplementedException();
+        AimingWeaponBullet bullet = BulletPrefab.GetComponent<AimingWeaponBullet>();
+        bullet.Speed = BulletSpeed;
+        bullet.TargetTransform = targetPos;
+        Instantiate(BulletPrefab, spawnPos.position, spawnPos.rotation);
     }
 }
