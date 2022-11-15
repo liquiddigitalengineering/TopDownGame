@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 5f;
+    public static bool IsMoving { get; private set; }
+    [SerializeField] [Min(0)] private float movementSpeed = 5f;
     private Rigidbody2D rb;
     private GameObject wheel;
-    private Transform MouseTransform;
+    private Transform mouseTransform;
     public Animator animator;
 
-    private GameObject topRightLimitObject;
-    private GameObject bottomLeftLimitObject;
+    private GameObject topRightLimitObject, bottomLeftLimitObject;
 
-    private Vector3 topRightLimit;
-    private Vector3 bottomLeftLimit;
+    private Vector3 topRightLimit, bottomLeftLimit;
 
     Vector2 movement;
 
+    #region Take care of events :) (it's not greek village, really xd)
+    private void OnEnable()
+    {
+        Timer.DeathEvent += DeathEvent;
+    }
+    private void OnDisable()
+    {
+        Timer.DeathEvent -= DeathEvent;
+    }
+    #endregion
+
     void Start(){
+        IsMoving = false;
         rb = GetComponent<Rigidbody2D>();
         wheel = GameObject.Find("WeaponWheel");
 
-        MouseTransform = wheel.transform;
+        mouseTransform = wheel.transform;
 
         topRightLimitObject = GameObject.Find("TopRightLimit");
         bottomLeftLimitObject = GameObject.Find("BottomLeftLimit");
@@ -40,11 +51,13 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);} //When the pointer is right of the player, flip the player to face right
         MouseDirection();
         wheel.transform.position = new Vector2(transform.position.x, transform.position.y);
+
+        if (movement == Vector2.zero) IsMoving = false;
+        else IsMoving = true;
     }
 
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
-
         // if(rb.position.x <= bottomLeftLimit.x || rb.position.y <= bottomLeftLimit.y){
         //     rb.position = new Vector2(transform.position.x+0.015f, transform.position.y+0.015f);
         // }
@@ -54,11 +67,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private void MouseDirection(){ //Function calculates angle of mouse to player, sets aim cursor to value. 
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition)-MouseTransform.position;
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition)-mouseTransform.position;
         float angle = Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
-        MouseTransform.rotation = rotation;
+        mouseTransform.rotation = rotation;
     }
+
     public void DeathEvent(){
         animator.SetBool("EndGame", true);
     }
