@@ -12,6 +12,7 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField] private WeaponSO weaponSO;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private MeshCollider meshCollider;
     private float defAngle;
 
     private Transform playerTransform;
@@ -23,11 +24,11 @@ public class WeaponHolder : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").gameObject.transform; 
     }
 
-    public void AssignThings()
+    public void AssignThings(ushort multiplier)
     {
         lineRenderer.enabled = false;
         weaponSO = SelectedWeapon();
-        ammos = weaponSO.Ammo;
+        ammos = (ushort)(weaponSO.Ammo * multiplier);
         spriteRenderer.sprite = weaponSO.WeaponSprite;
         defAngle = Angle;
         canShoot = true;
@@ -126,7 +127,6 @@ public class WeaponHolder : MonoBehaviour
     private void Laser()
     {
         if (!canShoot || ammos <= 0) return;
-
         StartCoroutine(LaserCoroutine());
     }
 
@@ -140,6 +140,8 @@ public class WeaponHolder : MonoBehaviour
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, transform.GetChild(0).transform.position);
         lineRenderer.SetPosition(1, dir);
+
+      
 
         yield return new WaitForSeconds(weaponSO.LaserTime);
         lineRenderer.enabled = false;

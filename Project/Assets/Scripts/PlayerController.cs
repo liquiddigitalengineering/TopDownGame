@@ -23,12 +23,10 @@ public class PlayerController : MonoBehaviour
     #region Take care of events :) (it's not greek village, really xd)
     private void OnEnable()
     {
-        Timer.DeathEvent += DeathEvent;
         PlayerHealthController.PlayerDeathEvent += DeathEvent;
     }
     private void OnDisable()
     {
-        Timer.DeathEvent -= DeathEvent;
         PlayerHealthController.PlayerDeathEvent -= DeathEvent;
     }
     #endregion

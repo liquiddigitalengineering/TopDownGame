@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -12,29 +13,35 @@ public class Timer : MonoBehaviour
     public delegate void OnNewWeaponWave(int wave);
     public static event OnNewWeaponWave NewWeaponWaveEvent;
 
-    public delegate void OnDeath();
-    public static event OnDeath DeathEvent;
-
     [SerializeField] private Targets targets;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private Weapons weapon;
+    [SerializeField] private GameObject deathCanvas;
     [Min(0)]
     [SerializeField] private float timerSecondsTargets = 15;
     [SerializeField] private float timerSecondsWeapons = 20;
-   
+    [Header("Healtbar")]
+    [SerializeField] private Sprite[] healthBarSprites;
+    [SerializeField] private Image healthBarImage;
+
     private float timeLeftTargets, timeLeftWeapons;
     private ushort targetWaveNumber, weaponWaveNumber = 1;
 
     private void OnEnable()
     {
         PlayerController.PlayerDiedEvent += DisableScript;
+        Bullet.BulletMissed += UpdateHealthBar;
     }
     private void OnDisable()
     {
         PlayerController.PlayerDiedEvent -= DisableScript;
+        Bullet.BulletMissed += UpdateHealthBar;
     }
 
     private void Awake()
     {
+        deathCanvas.SetActive(false);
         timeLeftTargets = timerSecondsTargets;
     }
 
@@ -51,8 +58,7 @@ public class Timer : MonoBehaviour
             timerText.text = System.Math.Round(timeLeftTargets, 0).ToString(); 
         }   
         else if (timeLeftTargets <= 0 && targets.ActiveTargets > 0) {
-            DeathEvent();
-            //GetComponent<PlayerController>().Death();
+            playerController.DeathEvent();
         }
         else {
             timeLeftTargets = timerSecondsTargets;
@@ -75,5 +81,18 @@ public class Timer : MonoBehaviour
     private void DisableScript()
     {
         this.gameObject.SetActive(false);
+    }
+
+    int currentSprite = -1;
+    private void UpdateHealthBar()
+    {
+        currentSprite++;
+        healthBarImage.sprite = healthBarSprites[currentSprite];
+        if (currentSprite == 0)
+            weapon.AdditionalWeapon();
+        else if (currentSprite == 1)
+            weapon.DoubleAmmos();
+        else if (currentSprite == 2)
+            playerController.DeathEvent();
     }
 }
