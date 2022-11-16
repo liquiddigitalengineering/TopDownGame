@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
             collision.GetComponent<Target>().DisableTarget();
             Destroy(this.gameObject);
         }
-        else if(collision.CompareTag("Border")) {
+        else if(collision.CompareTag("Border") && WaitForSpawn.IsSpawned) {
             BulletMissed();
         }
 

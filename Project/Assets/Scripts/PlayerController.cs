@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,9 @@ public class PlayerController : MonoBehaviour
 
     public static bool IsMoving { get; private set; }
     [SerializeField] [Min(0)] private float movementSpeed = 5f;
+    [SerializeField] private CapsuleCollider2D capsuleCollider;
+    [SerializeField] private BoxCollider2D boxCollider2;
+
     private Rigidbody2D rb;
     private GameObject wheel;
     private Transform mouseTransform;
@@ -78,10 +82,13 @@ public class PlayerController : MonoBehaviour
         mouseTransform.rotation = rotation;
     }
 
-    public void DeathEvent(){
-        animator.SetBool("EndGame", true);
-        PlayerDiedEvent();
+    public async void DeathEvent(){
         canMove = false;
         movement = Vector2.zero;
+        animator.SetBool("EndGame", true);
+        capsuleCollider.enabled = false;
+        boxCollider2.enabled = false;
+        await Task.Delay(1000);
+        PlayerDiedEvent();     
     }
 }

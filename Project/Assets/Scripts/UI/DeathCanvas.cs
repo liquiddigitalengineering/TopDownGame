@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathCanvas : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class DeathCanvas : MonoBehaviour
         PlayerController.PlayerDiedEvent -= Death;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     private async void Death()
     {
         await Task.Delay(1000);

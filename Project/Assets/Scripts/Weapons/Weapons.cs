@@ -25,9 +25,9 @@ public class Weapons : MonoBehaviour
         Timer.NewWeaponWaveEvent -= EnableRandomWeapons;
         PlayerController.PlayerDiedEvent -= PlayerDied;
     }
-
-    private void Start()
+    private void Awake()
     {
+        DisableLasers();
         EnableRandomWeapons(startEnabledTarget);
     }
   
@@ -48,9 +48,9 @@ public class Weapons : MonoBehaviour
 
             float angle = CalculatedRotation(weapon);
 
-            weapon.GetComponent<WeaponHolder>().Angle = angle;
             weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            weapon.GetComponent<WeaponHolder>().AssignThings(multiplier);
+            weapon.GetComponent<WeaponHolder>().AssignThings(multiplier, angle);
+            weapon.transform.GetChild(1).gameObject.SetActive(true);
             weapon.SetActive(true);
         }
     }
@@ -74,6 +74,13 @@ public class Weapons : MonoBehaviour
     #endregion
 
     #region private methods
+    private void DisableLasers()
+    {
+        for (int i = 0; i < weaponPlaces.Count; i++) {
+            weaponPlaces[i].Weapon.transform.GetChild(1).GetComponent<LineRenderer>().enabled = false;
+            weaponPlaces[i].Weapon.transform.GetChild(1).GetComponent<PolygonCollider2D>().enabled = false;
+        }
+    }
     private void DisableAllWeapons()
     {
         for (int i = 0; i < weaponPlaces.Count; i++)
@@ -99,12 +106,10 @@ public class Weapons : MonoBehaviour
         int place = weaponPlaces.IndexOf(disabledWeapons[randomNumber]);
 
         GameObject weapon = weaponPlaces[place].Weapon;
-
         float angle = CalculatedRotation(weapon);
 
-        weapon.GetComponent<WeaponHolder>().Angle = angle;
         weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        weapon.GetComponent<WeaponHolder>().AssignThings(multiplier);
+        weapon.GetComponent<WeaponHolder>().AssignThings(multiplier, angle);
         weapon.SetActive(true);
     }
     #endregion
@@ -118,5 +123,4 @@ public class Weapons : MonoBehaviour
 public struct WeaponHolderInfo
 {
     public GameObject Weapon;
-    public byte Id;
 }

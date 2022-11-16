@@ -7,6 +7,7 @@ TagManager:
   - Target
   - Bullet
   - Border
+  - HealthBar
   layers:
   - Default
   - TransparentFX

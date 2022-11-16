@@ -16,14 +16,10 @@ public class Timer : MonoBehaviour
     [SerializeField] private Targets targets;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private Weapons weapon;
-    [SerializeField] private GameObject deathCanvas;
     [Min(0)]
     [SerializeField] private float timerSecondsTargets = 15;
     [SerializeField] private float timerSecondsWeapons = 20;
-    [Header("Healtbar")]
-    [SerializeField] private Sprite[] healthBarSprites;
-    [SerializeField] private Image healthBarImage;
+
 
     private float timeLeftTargets, timeLeftWeapons;
     private ushort targetWaveNumber, weaponWaveNumber = 1;
@@ -31,17 +27,14 @@ public class Timer : MonoBehaviour
     private void OnEnable()
     {
         PlayerController.PlayerDiedEvent += DisableScript;
-        Bullet.BulletMissed += UpdateHealthBar;
     }
     private void OnDisable()
     {
-        PlayerController.PlayerDiedEvent -= DisableScript;
-        Bullet.BulletMissed += UpdateHealthBar;
+        PlayerController.PlayerDiedEvent -= DisableScript;       
     }
 
     private void Awake()
     {
-        deathCanvas.SetActive(false);
         timeLeftTargets = timerSecondsTargets;
     }
 
@@ -83,16 +76,5 @@ public class Timer : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    int currentSprite = -1;
-    private void UpdateHealthBar()
-    {
-        currentSprite++;
-        healthBarImage.sprite = healthBarSprites[currentSprite];
-        if (currentSprite == 0)
-            weapon.AdditionalWeapon();
-        else if (currentSprite == 1)
-            weapon.DoubleAmmos();
-        else if (currentSprite == 2)
-            playerController.DeathEvent();
-    }
+
 }
