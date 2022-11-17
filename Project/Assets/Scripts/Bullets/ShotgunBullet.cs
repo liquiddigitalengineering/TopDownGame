@@ -19,7 +19,7 @@ public class ShotgunBullet : MonoBehaviour
         direction = (Target.position - transform.position).normalized;
         rb.velocity = new Vector2(direction.x, direction.y) * Speed;
 
-        Invoke("SpawnMoreBullets", 0.2f);
+        Invoke("SpawnMoreBullets", 0.5f);
     }
 
     private void SpawnMoreBullets()
@@ -27,7 +27,7 @@ public class ShotgunBullet : MonoBehaviour
         for (int i = 0; i < MiniVersions; i++) {
             GameObject bulletPrefab =  Instantiate(prefab, this.transform.position, transform.rotation);
             Rigidbody2D gameRB = bulletPrefab.GetComponent<Rigidbody2D>();
-            Vector2 dir = (transform.forward - transform.position);
+            Vector2 dir = (Target.position - transform.position);
             Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(-spread, spread);
             gameRB.velocity = (dir + pdir).normalized * Speed;
         }

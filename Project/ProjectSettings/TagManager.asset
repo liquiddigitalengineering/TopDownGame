@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
+  - Bullet
+  - Border
+  - HealthBar
   layers:
   - Default
   - TransparentFX

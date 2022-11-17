@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8558103751990471517}
   - component: {fileID: 1495805715627948438}
   - component: {fileID: 8558103751990471514}
-  - component: {fileID: -3289363794845506202}
+  - component: {fileID: 1815529383919138303}
   m_Layer: 0
   m_Name: SmallShotGunBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8558103751990471516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 80
   m_Sprite: {fileID: 2233360622135047370, guid: 983dd2a505923a24ba6cda6d467a314c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,17 +105,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &-3289363794845506202
-PolygonCollider2D:
+--- !u!61 &1815529383919138303
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8558103751990471516}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -128,11 +128,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.049999997, y: 0.055}
-      - {x: -0.08, y: 0.024999999}
-      - {x: -0.08, y: -0.024999999}
-      - {x: -0.049999997, y: -0.055}
-      - {x: 0.08, y: -0.055}
-      - {x: 0.08, y: 0.055}
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.12}
+  m_EdgeRadius: 0

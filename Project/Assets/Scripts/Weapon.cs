@@ -5,8 +5,6 @@ using UnityEngine.UIElements;
 
 public class Weapon : MonoBehaviour
 {
-    public static bool IsNotMoving = true;
-
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform bulletTRANS;
 

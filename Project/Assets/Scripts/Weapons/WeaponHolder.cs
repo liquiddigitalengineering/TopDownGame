@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    [HideInInspector]
-    public float Angle;
     [SerializeField] private WeaponTypesListSO WeaponList;
     [SerializeField] private WeaponSO weaponSO;
     [SerializeField] private LineRenderer lineRenderer;
@@ -20,27 +18,38 @@ public class WeaponHolder : MonoBehaviour
 
     private void Awake()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").gameObject.transform; 
+        this.lineRenderer.enabled = false;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
     }
 
-    public void AssignThings()
+    public void AssignThings(ushort multiplier, float angle)
     {
         lineRenderer.enabled = false;
         weaponSO = SelectedWeapon();
-        ammos = weaponSO.Ammo;
+        ammos = (ushort)(weaponSO.Ammo * multiplier);
         spriteRenderer.sprite = weaponSO.WeaponSprite;
-        defAngle = Angle;
+        Debug.Log(angle);
+        defAngle = angle;
         canShoot = true;
 
         transform.GetChild(0).transform.localPosition = weaponSO.Firepoint;
         Vector2 secondChilPos = new Vector2(weaponSO.Firepoint.x - 10, weaponSO.Firepoint.y);
         transform.GetChild(2).transform.localPosition = secondChilPos;
+
+        if (weaponSO.WeaponType != WeaponTypes.laser)
+            this.transform.GetChild(1).gameObject.GetComponent<PolygonCollider2D>().enabled = false;  
     }
 
     private void Update()
     {
         if (!this.gameObject.activeInHierarchy) return;
 
+        Shooting();
+       
+    }
+
+    private void Shooting()
+    {
         if (weaponSO.WeaponType == WeaponTypes.aimingWeapon)
             RotateTowardsPlayer();
         else if (weaponSO.WeaponType == WeaponTypes.laser)
@@ -49,9 +58,7 @@ public class WeaponHolder : MonoBehaviour
             AssaultRifle();
         else
             Shotgun();
-       
     }
-
     #region Weapons
     #region Shotgun
     private void Shotgun()
@@ -108,7 +115,7 @@ public class WeaponHolder : MonoBehaviour
         float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if (Weapon.IsNotMoving && canShoot && ammos > 0)
+        if (PlayerController.IsMoving && canShoot && ammos > 0)
             StartCoroutine(ShootingCoroutine());
     }
 
@@ -126,23 +133,25 @@ public class WeaponHolder : MonoBehaviour
     private void Laser()
     {
         if (!canShoot || ammos <= 0) return;
-
         StartCoroutine(LaserCoroutine());
     }
 
     private IEnumerator LaserCoroutine()
     {
         if (weaponSO.Sprites.Count > 0) spriteRenderer.sprite = weaponSO.Sprites[1];
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
+        EnableLaser();
         ammos --;
         canShoot = false;
         Vector2 dir = (this.transform.GetChild(2).transform.position - this.transform.GetChild(0).transform.position);
         lineRenderer.enabled = true;
+
         lineRenderer.SetPosition(0, transform.GetChild(0).transform.position);
         lineRenderer.SetPosition(1, dir);
 
         yield return new WaitForSeconds(weaponSO.LaserTime);
         lineRenderer.enabled = false;
+        this.transform.GetChild(1).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         if (weaponSO.Sprites.Count > 0) spriteRenderer.sprite = weaponSO.Sprites[0];
         
         yield return new WaitForSeconds(2f);
@@ -159,20 +168,28 @@ public class WeaponHolder : MonoBehaviour
         StartCoroutine(AssaultRifleCoroutine());
     }
 
+    private float newAngle;
     private IEnumerator AssaultRifleCoroutine()
     {
         if (weaponSO.Sprites.Count > 0) spriteRenderer.sprite = weaponSO.Sprites[1];
         canShoot = false;
-        defAngle += Random.Range(-15, 15);
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, defAngle));
+        newAngle = defAngle;
+        newAngle += Random.Range(-10, 10);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, newAngle));
         yield return new WaitForSeconds(1f);    
         weaponSO.Shoot(this.transform.GetChild(0), this.transform.GetChild(2));
         if (weaponSO.Sprites.Count > 0) spriteRenderer.sprite = weaponSO.Sprites[0];
         yield return new WaitForSeconds(2f);
         canShoot = true;
-        defAngle = Angle;
-       
+        newAngle = defAngle;     
     }
     #endregion
     #endregion
+
+    private void EnableLaser()
+    {
+        GameObject laserObject = this.transform.GetChild(1).gameObject;
+        laserObject.GetComponent<PolygonCollider2D>().enabled = true;
+        laserObject.GetComponent<Laser>().LaserEnabled();
+    }
 }

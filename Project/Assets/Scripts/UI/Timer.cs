@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -12,17 +13,25 @@ public class Timer : MonoBehaviour
     public delegate void OnNewWeaponWave(int wave);
     public static event OnNewWeaponWave NewWeaponWaveEvent;
 
-    public delegate void OnDeath();
-    public static event OnDeath DeathEvent;
-
     [SerializeField] private Targets targets;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private PlayerController playerController;
     [Min(0)]
     [SerializeField] private float timerSecondsTargets = 15;
     [SerializeField] private float timerSecondsWeapons = 20;
-   
+
+
     private float timeLeftTargets, timeLeftWeapons;
     private ushort targetWaveNumber, weaponWaveNumber = 1;
+
+    private void OnEnable()
+    {
+        PlayerController.PlayerDiedEvent += DisableScript;
+    }
+    private void OnDisable()
+    {
+        PlayerController.PlayerDiedEvent -= DisableScript;       
+    }
 
     private void Awake()
     {
@@ -31,7 +40,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        //CalculateTargetTime();
+        CalculateTargetTime();
         CalculateWeaponTime();
     }
 
@@ -42,8 +51,7 @@ public class Timer : MonoBehaviour
             timerText.text = System.Math.Round(timeLeftTargets, 0).ToString(); 
         }   
         else if (timeLeftTargets <= 0 && targets.ActiveTargets > 0) {
-            DeathEvent();
-            //GetComponent<PlayerController>().Death();
+            playerController.DeathEvent();
         }
         else {
             timeLeftTargets = timerSecondsTargets;
@@ -57,12 +65,16 @@ public class Timer : MonoBehaviour
         if (timeLeftWeapons > 0)
             timeLeftWeapons -= Time.deltaTime;
         else {
-            Debug.Log("New wave");
             timeLeftWeapons = timerSecondsWeapons;
             weaponWaveNumber++;
-            Debug.Log(weaponWaveNumber);
             NewWeaponWaveEvent(weaponWaveNumber);
         }
     }
+
+    private void DisableScript()
+    {
+        this.gameObject.SetActive(false);
+    }
+
 
 }
