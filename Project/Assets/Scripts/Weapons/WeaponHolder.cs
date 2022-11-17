@@ -28,7 +28,6 @@ public class WeaponHolder : MonoBehaviour
         weaponSO = SelectedWeapon();
         ammos = (ushort)(weaponSO.Ammo * multiplier);
         spriteRenderer.sprite = weaponSO.WeaponSprite;
-        Debug.Log(angle);
         defAngle = angle;
         canShoot = true;
 
@@ -44,8 +43,7 @@ public class WeaponHolder : MonoBehaviour
     {
         if (!this.gameObject.activeInHierarchy) return;
 
-        Shooting();
-       
+        Shooting();      
     }
 
     private void Shooting()
@@ -56,9 +54,10 @@ public class WeaponHolder : MonoBehaviour
             Laser();
         else if (weaponSO.WeaponType == WeaponTypes.assaultRifle)
             AssaultRifle();
-        else
+        else if(weaponSO.WeaponType == WeaponTypes.shotgun)
             Shotgun();
     }
+
     #region Weapons
     #region Shotgun
     private void Shotgun()
@@ -85,17 +84,17 @@ public class WeaponHolder : MonoBehaviour
         byte randomNumber = (byte)Random.Range(0, 1);
 
         if (randomNumber >= 0.8)
-            weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance >= 0.8);
+            weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance <= 0.2);
         else if (randomNumber >= 0.5)
-            weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance >= 0.5);
+            weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance == 0.5);
         else if (randomNumber >= 0.4)
-           weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance >= 0.4);
+           weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance <= 0.6);
         else if (randomNumber >= 0.3)
-            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance >= 0.3);
+            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance == 0.7);
         else if (randomNumber >= 0.2)
-            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance >= 0.2);
+            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance == 0.8);
         else
-            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance >= 0.1);
+            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance <= 0.9 && weapon.SpawnChance >= 0.8);
 
         if (weapons.Count == 1) return weapons[0].WeaponSO;
         else return weapons[Random.Range(0, weapons.Count)].WeaponSO;
@@ -139,7 +138,7 @@ public class WeaponHolder : MonoBehaviour
     private IEnumerator LaserCoroutine()
     {
         if (weaponSO.Sprites.Count > 0) spriteRenderer.sprite = weaponSO.Sprites[1];
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         EnableLaser();
         ammos --;
         canShoot = false;
@@ -156,6 +155,12 @@ public class WeaponHolder : MonoBehaviour
         
         yield return new WaitForSeconds(2f);
         canShoot = true;    
+    }
+    private void EnableLaser()
+    {
+        GameObject laserObject = this.transform.GetChild(1).gameObject;
+        laserObject.GetComponent<PolygonCollider2D>().enabled = true;
+        laserObject.GetComponent<Laser>().LaserEnabled();
     }
     #endregion
 
@@ -184,12 +189,5 @@ public class WeaponHolder : MonoBehaviour
         newAngle = defAngle;     
     }
     #endregion
-    #endregion
-
-    private void EnableLaser()
-    {
-        GameObject laserObject = this.transform.GetChild(1).gameObject;
-        laserObject.GetComponent<PolygonCollider2D>().enabled = true;
-        laserObject.GetComponent<Laser>().LaserEnabled();
-    }
+    #endregion  
 }

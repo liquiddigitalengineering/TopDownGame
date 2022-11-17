@@ -7,9 +7,8 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
-    [SerializeField] private List<WeaponHolderInfo> weaponPlaces;
+    [SerializeField] private List<GameObject> weaponPlaces;
     [SerializeField] private GameObject middlePoints;
-    [SerializeField] private WeaponTypesListSO weaponList;
 
     private ushort startEnabledTarget = 1;
     private ushort multiplier = 1;
@@ -39,9 +38,9 @@ public class Weapons : MonoBehaviour
 
         for (ushort i = 0; i < startEnabledTarget; i++) {
             byte randomNumber = (byte)Random.Range(0, weaponPlaces.Count);
-            GameObject weapon = weaponPlaces[randomNumber].Weapon;
+            GameObject weapon = weaponPlaces[randomNumber];
 
-            if (weaponPlaces[randomNumber].Weapon.activeInHierarchy) {
+            if (weaponPlaces[randomNumber].activeInHierarchy) {
                 i--;
                 continue;
             }
@@ -77,14 +76,14 @@ public class Weapons : MonoBehaviour
     private void DisableLasers()
     {
         for (int i = 0; i < weaponPlaces.Count; i++) {
-            weaponPlaces[i].Weapon.transform.GetChild(1).GetComponent<LineRenderer>().enabled = false;
-            weaponPlaces[i].Weapon.transform.GetChild(1).GetComponent<PolygonCollider2D>().enabled = false;
+            weaponPlaces[i].transform.GetChild(1).GetComponent<LineRenderer>().enabled = false;
+            weaponPlaces[i].transform.GetChild(1).GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
     private void DisableAllWeapons()
     {
         for (int i = 0; i < weaponPlaces.Count; i++)
-            weaponPlaces[i].Weapon.SetActive(false);
+            weaponPlaces[i].SetActive(false);
     }
 
     private void PlayerDied()
@@ -95,17 +94,17 @@ public class Weapons : MonoBehaviour
     #endregion
 
     #region Player's first miss
-    private List<WeaponHolderInfo> disabledWeapons;
+    private List<GameObject> disabledWeapons;
 
     public void AdditionalWeapon()
     {      
         startEnabledTarget++;
-        disabledWeapons = weaponPlaces.FindAll(x => x.Weapon.activeInHierarchy == false);
+        disabledWeapons = weaponPlaces.FindAll(x => x.activeInHierarchy == false);
         byte randomNumber = (byte)Random.Range(0, disabledWeapons.Count);
 
         int place = weaponPlaces.IndexOf(disabledWeapons[randomNumber]);
 
-        GameObject weapon = weaponPlaces[place].Weapon;
+        GameObject weapon = weaponPlaces[place];
         float angle = CalculatedRotation(weapon);
 
         weapon.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
@@ -117,10 +116,4 @@ public class Weapons : MonoBehaviour
     #region Player's second miss
     public void DoubleAmmos() => multiplier++;
     #endregion
-}
-
-[System.Serializable]
-public struct WeaponHolderInfo
-{
-    public GameObject Weapon;
 }

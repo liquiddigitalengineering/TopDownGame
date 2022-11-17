@@ -10,15 +10,11 @@ public class Laser : MonoBehaviour
     private List<Vector2> colliderPoints = new List<Vector2>();
     private PolygonCollider2D polygonCollider2D;
 
-    private void Awake()
-    {
-        lr = GetComponent<LineRenderer>();
-        polygonCollider2D = GetComponent<PolygonCollider2D>();
-    }
 
     public void LaserEnabled()
     {
-      
+        lr = GetComponent<LineRenderer>();
+        polygonCollider2D = GetComponent<PolygonCollider2D>();
         lr.positionCount = nodes.Count;
         lr.SetPositions(nodes.ConvertAll(n => n.position - new Vector3(0, 0, 5)).ToArray());
         colliderPoints = CalculateColliderPoints();

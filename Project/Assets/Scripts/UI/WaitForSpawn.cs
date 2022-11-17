@@ -6,7 +6,8 @@ using UnityEngine;
 public class WaitForSpawn : MonoBehaviour
 {
     public static bool IsSpawned;
-    [SerializeField] private GameObject targetSpawnPoints, gunSpawnPoints, timerCanvas, counterObject, deathCanvas, healthBar;
+    [SerializeField] private GameObject deathCanvas, counterObject;
+    [SerializeField] List<GameObject> enableObjects;
     [SerializeField] private TextMeshProUGUI counterText;
     // Start is called before the first frame update
     void  Start()
@@ -30,9 +31,8 @@ public class WaitForSpawn : MonoBehaviour
     private void EnableThings()
     {
         counterObject.SetActive(false);
-        targetSpawnPoints.SetActive(true);
-        gunSpawnPoints.SetActive(true);
-        timerCanvas.SetActive(true);
-        healthBar.SetActive(true);
+        for (int i = 0; i < enableObjects.Count; i++) {
+            enableObjects[i].SetActive(true);
+        }
     }
 }
