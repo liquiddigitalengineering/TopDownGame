@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8558103751990471514}
   - component: {fileID: 2770502398409313448}
   - component: {fileID: 3762320194230664028}
+  - component: {fileID: 5002263018474194545}
   m_Layer: 0
   m_Name: HungingRifleBullet
   m_TagString: Bullet
@@ -147,3 +148,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17, y: 0.06}
   m_EdgeRadius: 0
+--- !u!95 &5002263018474194545
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558103751990471516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd88a02dba253f943b66bdd0eab26b82, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
