@@ -17,7 +17,6 @@ public class BestTime : MonoBehaviour
         PlayerController.PlayerDiedEvent -= StopTimer;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!WaitForSpawn.IsSpawned || !canCount) return;
@@ -37,7 +36,5 @@ public class BestTime : MonoBehaviour
             if(previousBestTime < timeSurvived)
                 PlayerPrefs.SetFloat("BestTime", timeSurvived);
         }
-
-        Debug.Log(timeSurvived);
     }
 }
