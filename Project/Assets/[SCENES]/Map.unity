@@ -1700,7 +1700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36ba6520843c8b4b96a4bd8a65eeea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeSpawn: 20
+  timeBeforeSpawn: 5
   centerPoint: {fileID: 940346383}
   explosivesSO: {fileID: 11400000, guid: df72321d9d3da9b42bbaf48b465968c2, type: 2}
   spawnTransforms:
