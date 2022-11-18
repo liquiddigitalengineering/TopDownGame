@@ -75,26 +75,22 @@ public class WeaponHolder : MonoBehaviour
         canShoot = true;
     }
     #endregion
-
+    private List<WeaponInfo> weapons = new List<WeaponInfo>();
     #region Select weapon based on spawn %
     private WeaponSO SelectedWeapon()
     {
-        List<WeaponInfo> weapons;
+        float randomNumber = Random.Range(0f, 1f);
 
-        byte randomNumber = (byte)Random.Range(0, 1);
-
-        if (randomNumber >= 0.8)
-            weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance <= 0.2);
-        else if (randomNumber >= 0.5)
-            weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance == 0.5);
-        else if (randomNumber >= 0.4)
-           weapons =  WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance <= 0.6);
-        else if (randomNumber >= 0.3)
-            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance == 0.7);
-        else if (randomNumber >= 0.2)
-            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance == 0.8);
-        else
-            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance <= 0.9 && weapon.SpawnChance >= 0.8);
+        if (randomNumber >= 0.8 && randomNumber <= 1)
+            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance <= 0.3 && weapon.SpawnChance >= 0.1); //0.3,0.2,0,1
+        else if (randomNumber >= 0.5 && randomNumber < 0.8)
+            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance < 0.6 && weapon.SpawnChance > 0.4); //0.5
+        else if (randomNumber >= 0.4 && randomNumber < 0.5)
+            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance < 0.7 && weapon.SpawnChance > 0.5); //0.6
+        else if (randomNumber >= 0.3 && randomNumber < 0.4)
+            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance < 0.8 &&weapon.SpawnChance > 0.6); //0.7
+        else if (randomNumber < 0.3)
+            weapons = WeaponList.WeaponTypesList.FindAll(weapon => weapon.SpawnChance < 1 && weapon.SpawnChance > 0.7); //0.8 & 0.9
 
         if (weapons.Count == 1) return weapons[0].WeaponSO;
         else return weapons[Random.Range(0, weapons.Count)].WeaponSO;

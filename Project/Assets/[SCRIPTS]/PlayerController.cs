@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Min(0)] private float movementSpeed = 5f;
     [SerializeField] private CapsuleCollider2D capsuleCollider;
     [SerializeField] private BoxCollider2D boxCollider2;
+    [SerializeField] private GameObject gun;
 
     private Rigidbody2D rb;
     private GameObject wheel;
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public async void DeathEvent(){
+        gun.SetActive(false);
         canMove = false;
         movement = Vector2.zero;
         animator.SetBool("EndGame", true);
