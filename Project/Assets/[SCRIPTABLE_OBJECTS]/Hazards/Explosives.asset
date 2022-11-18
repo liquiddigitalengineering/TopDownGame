@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02acb055ef282e442a46f86f1d73cb37, type: 3}
+  m_Name: Explosives
+  m_EditorClassIdentifier: 
+  Explosives:
+  - Prefab: {fileID: 5635771473014204808, guid: 47f3e31ab2ce52940bbfb3272f790685, type: 3}
+    ExplosiveType: 0
+    Amount: 2
+  - Prefab: {fileID: 5686547428583487429, guid: 167ba66b5039ac3418d2284638cd2345, type: 3}
+    ExplosiveType: 1
+    Amount: 1
