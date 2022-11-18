@@ -7,6 +7,7 @@ using TMPro;
 using System;
 using System.Text.RegularExpressions;
 using UnityEngine.Networking;
+using System.Threading.Tasks;
 
 public class MainMenu : MonoBehaviour
 {
@@ -32,8 +33,9 @@ public class MainMenu : MonoBehaviour
 		Application.Quit();
 	}
 
-	private void UpdateTextTime()
+	private async void UpdateTextTime()
 	{
+		await Task.Delay(1000);
 		float bestTime = PlayerPrefs.GetFloat("BestTime");
 		timerText.text = $"Best time: {bestTime.ToString("#.00")} s";
 	}
