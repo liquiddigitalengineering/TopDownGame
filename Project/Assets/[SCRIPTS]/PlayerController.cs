@@ -15,10 +15,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private GameObject wheel;
-    private Transform mouseTransform;
+    private GameObject weapon;
+    private Transform mouseTransform, weaponTransform;
     public Animator animator;
-
-    private GameObject topRightLimitObject, bottomLeftLimitObject;
 
     private Vector3 topRightLimit, bottomLeftLimit;
     private bool canMove = true;
@@ -39,13 +38,10 @@ public class PlayerController : MonoBehaviour
         IsMoving = false;
         rb = GetComponent<Rigidbody2D>();
         wheel = GameObject.Find("WeaponWheel");
+        weapon = GameObject.Find("Weapon");
 
         mouseTransform = wheel.transform;
-
-        topRightLimitObject = GameObject.Find("TopRightLimit");
-        bottomLeftLimitObject = GameObject.Find("BottomLeftLimit");
-        //topRightLimit = topRightLimitObject.transform.position;
-        //bottomLeftLimit = bottomLeftLimitObject.transform.position;
+        weaponTransform = weapon.transform;
     }
 
     void Update(){
@@ -55,11 +51,15 @@ public class PlayerController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         Vector2 mousePosition = Input.mousePosition;
         if(wheel.transform.localEulerAngles.z > 180){
-            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y);} //When the pointer is left of the player, flip the player to face left
+            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y);
+            weapon.transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y);} //When the pointer is left of the player, flip the player to face left
         if(wheel.transform.localEulerAngles.z < 180){
-            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);} //When the pointer is right of the player, flip the player to face right
+            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            } //When the pointer is right of the player, flip the player to face right
         MouseDirection();
         wheel.transform.position = new Vector2(transform.position.x, transform.position.y);
+        weapon.transform.position = new Vector2(transform.position.x, transform.position.y);
+
 
         if (movement == Vector2.zero) IsMoving = false;
         else IsMoving = true;
@@ -67,19 +67,15 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
-        // if(rb.position.x <= bottomLeftLimit.x || rb.position.y <= bottomLeftLimit.y){
-        //     rb.position = new Vector2(transform.position.x+0.015f, transform.position.y+0.015f);
-        // }
-        // if(rb.position.x >= topRightLimit.x || rb.position.y >= topRightLimit.y){
-        //     rb.position = new Vector2(transform.position.x-0.015f, transform.position.y-0.015f);
-        // }
     }
 
     private void MouseDirection(){ //Function calculates angle of mouse to player, sets aim cursor to value. 
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition)-mouseTransform.position;
         float angle = Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
+        Quaternion rotation2 = Quaternion.AngleAxis(angle, Vector3.forward);
         mouseTransform.rotation = rotation;
+        weaponTransform.rotation = rotation2;
     }
 
     public async void DeathEvent(){
