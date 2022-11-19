@@ -5040,6 +5040,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5404052737293182297, guid: c3966bfb54b7f6647ad779d17ba6ee93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5404052737293182311, guid: c3966bfb54b7f6647ad779d17ba6ee93, type: 3}
       propertyPath: m_SortingOrder
       value: 500
@@ -5047,6 +5051,10 @@ PrefabInstance:
     - target: {fileID: 5404052737572933544, guid: c3966bfb54b7f6647ad779d17ba6ee93, type: 3}
       propertyPath: m_Name
       value: WeaponWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404052737572933544, guid: c3966bfb54b7f6647ad779d17ba6ee93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5404052737572933558, guid: c3966bfb54b7f6647ad779d17ba6ee93, type: 3}
       propertyPath: m_Enabled
