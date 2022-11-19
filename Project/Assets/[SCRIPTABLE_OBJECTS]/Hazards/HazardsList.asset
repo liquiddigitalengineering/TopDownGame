@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82335bd942e49e94da2860879ebbb182, type: 3}
+  m_Name: HazardsList
+  m_EditorClassIdentifier: 
+  HazardsList:
+  - Prefab: {fileID: 2530487049796818478, guid: 19f8876058311cd48b0b0b313417041c, type: 3}
+    Shadow: {fileID: 2746111723363056737, guid: 3fab61cd274ef1b49bd539623eb5c8ac, type: 3}
+    SpawnChance: 0.6
+    Speed: 15
+  - Prefab: {fileID: 2951797848076423131, guid: 6a8b35bad49d20545a6c9c6c20e57ac0, type: 3}
+    Shadow: {fileID: 2269780046175349353, guid: f200d38d3e7bf08439c9caf9d1ab24bc, type: 3}
+    SpawnChance: 0.6
+    Speed: 20
+  - Prefab: {fileID: 2458560765299981400, guid: cc42e0840062893408377f76c415dae1, type: 3}
+    Shadow: {fileID: -5208297928802134633, guid: 77e70bf7ae04eb54fa6d4e7b7adc4c10, type: 3}
+    SpawnChance: 0.6
+    Speed: 15
+  - Prefab: {fileID: 8746340504242555128, guid: 2615930e378df1e4abb40f2de381af02, type: 3}
+    Shadow: {fileID: 2765758911883171386, guid: cb320b1a29d96f64abeb27445d7fb48c, type: 3}
+    SpawnChance: 0.2
+    Speed: 30

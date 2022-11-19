@@ -17,8 +17,6 @@ public class Bullet : MonoBehaviour
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        //direction = (mousePos - transform.position);
-        //rb.velocity = new Vector2(direction.x, direction.y).normalized * Speed;
     }
 
     private void Start()

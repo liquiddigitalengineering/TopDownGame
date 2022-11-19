@@ -6,12 +6,12 @@ using UnityEngine.UIElements;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    [SerializeField] private Transform bulletTRANS;
+    [SerializeField] private Transform firepoinTransform;
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-            Instantiate(prefab, bulletTRANS.position, Quaternion.identity);
+            Instantiate(prefab, firepoinTransform.position, firepoinTransform.rotation);
         }
     }
 }
