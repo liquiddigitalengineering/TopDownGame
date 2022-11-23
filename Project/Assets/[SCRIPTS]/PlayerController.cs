@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CapsuleCollider2D capsuleCollider;
     [SerializeField] private BoxCollider2D boxCollider2;
     [SerializeField] private GameObject gun;
+    [SerializeField] private GameObject playerPistol;
 
     private Rigidbody2D rb;
     private GameObject wheel;
@@ -51,12 +52,17 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         Vector2 mousePosition = Input.mousePosition;
-        if(wheel.transform.localEulerAngles.z > 180){
+        if(wheel.transform.localEulerAngles.z > 180) //When the pointer is left of the player, flip the player to face left
+        { 
             transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y);
-            weapon.transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y);} //When the pointer is left of the player, flip the player to face left
-        if(wheel.transform.localEulerAngles.z < 180){
+            weapon.transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y);
+            playerPistol.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        } 
+        if(wheel.transform.localEulerAngles.z < 180) //When the pointer is right of the player, flip the player to face right
+        {
             transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
-            } //When the pointer is right of the player, flip the player to face right
+            playerPistol.transform.localRotation = Quaternion.Euler(-180, 0, 0);
+        } 
         MouseDirection();
         wheel.transform.position = new Vector2(transform.position.x, transform.position.y);
         weapon.transform.position = new Vector2(transform.position.x, transform.position.y);

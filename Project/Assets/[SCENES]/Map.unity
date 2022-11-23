@@ -2718,9 +2718,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512977446}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32465354, y: -0.09960556, z: 231.76707}
-  m_LocalScale: {x: 0.75, y: 0.75000024, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.29055, y: -0.09960556, z: 231.76707}
+  m_LocalScale: {x: 0.64086, y: 0.6408602, z: 0.8545}
   m_Children:
   - {fileID: 271227831}
   m_Father: {fileID: 2002516127}
@@ -4407,7 +4407,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4377543653180470586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -9965,6 +9965,7 @@ MonoBehaviour:
   capsuleCollider: {fileID: 4377543653180470587}
   boxCollider2: {fileID: 1026614602}
   gun: {fileID: 2002516126}
+  playerPistol: {fileID: 512977446}
   animator: {fileID: 1972656097805298373}
 --- !u!1 &4377543653180470586
 GameObject:
@@ -9996,7 +9997,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4377543653180470586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
